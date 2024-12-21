@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomex - YouTube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c7caca;
+        }
+        /* Efecto de fondo con movimiento (parallax) */
+        header {
+            background-image: url('baner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transform: translate3d(0, 0, 0);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer; /* Cambia el cursor para indicar que se puede hacer clic */
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Efecto de crecimiento y brillo al pasar el cursor sobre el header */
+        header:hover {
+            transform: scale(1.05);  /* Aumenta el tamaño ligeramente */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);  /* Brillo */
+        }
+        header:hover h1 {
+            text-shadow: 2px 2px 15px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.8); /* Brillo fuerte en el texto */
+        }
+
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        h2, h3 {
+            margin: 10px 0;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Agrega un resplandor en los textos cuando el cursor pasa sobre ellos */
+        h2:hover, h3:hover {
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #ff0000;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease-in-out;
+        }
+        a:hover {
+            color: #ff4d4d;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.7);
+        }
+
+        .video-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .video-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .video-thumbnail {
+            width: 100px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+        .video-links a:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            transition: color 0.3s ease-in-out;
+        }
+        .video-links a:hover .video-title {
+            color: #ff0000;
+        }
+
+        .instagram-section {
+            margin-top: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .instagram-link {
+            font-size: 1.5rem;
+            color: #E4405F;
+            font-weight: bold;
+            display: block;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: color 0.3s ease-in-out;
+        }
+        .instagram-link:hover {
+            text-decoration: underline;
+            color: #ff66b3;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 15px;
+                width: 90%;
+            }
+            .video-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .video-thumbnail {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Audio oculto, se reproduce solo cuando el usuario hace clic en el banner -->
+    <audio id="audio" preload="auto">
+        <source src="xp.mp3" type="audio/mp3">
+        Tu navegador no soporta el formato de audio.
+    </audio>
+
+    <header onclick="playAudio()">
+        <h1></h1>
+    </header>
+    <div class="container">
+        <h2>¡Bienvenido a Tomex!</h2>
+        <p>Visita mi canal:</p>
+        <a href="https://www.youtube.com/@Tomex" target="_blank">www.youtube.com/@Tomex</a>
+        <p>¡Suscríbete para más contenido!</p>
+        
+        <div class="video-links">
+            <h3>Videos Populares</h3>
+            <div class="video-item">
+                <a href="https://youtu.be/fTMcnxu0y40?feature=shared" target="_blank">
+                    <img class="video-thumbnail" src="https://i.ytimg.com/an_webp/fTMcnxu0y40/mqdefault_6s.webp?du=3000&sqp=CPaCnLsG&rs=AOn4CLAJPNck-yOupfCfeYl79iWFyhYbHA" alt="Video 1 Thumbnail">
+                    <span class="video-title">DESCARGUE una CONSOLA en un CELULAR…</span>
+                </a>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/RBTsNIEFkgU?feature=shared" target="_blank">
+                    <img class="video-thumbnail" src="https://i.ytimg.com/an_webp/RBTsNIEFkgU/mqdefault_6s.webp?du=3000&sqp=COPcm7sG&rs=AOn4CLBXqfgo_SakAVOBVJerML8QA2ssZw" alt="Video 2 Thumbnail">
+                    <span class="video-title">Instale 100 Virus muy Peligrosos en mi PC</span>
+                </a>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/soEmiw4yJIE?feature=shared" target="_blank">
+                    <img class="video-thumbnail" src="https://i.ytimg.com/an_webp/soEmiw4yJIE/mqdefault_6s.webp?du=3000&sqp=CIP3m7sG&rs=AOn4CLBFmjgpGiEqoTFDcJSW_0sk4Dg2tg" alt="Video 3 Thumbnail">
+                    <span class="video-title">Instale Virus muy Peligrosos de la DEEP WEB en mi PC</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="instagram-section">
+        <h3>Sígueme en Instagram</h3>
+        <a href="https://www.instagram.com/eltomex?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-link">www.instagram.com/eltomex</a>
+    </div>
+
+    <script>
+        // Función que se ejecuta al hacer clic en el banner
+        function playAudio() {
+            var audio = document.getElementById('audio');
+            audio.play();  // Reproduce el audio
+        }
+    </script>
+</body>
+</html>
